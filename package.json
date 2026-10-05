@@ -1,0 +1,23 @@
+{
+  "name": "todo-app",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "packageManager": "pnpm@9.15.9",
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB -c cyan,magenta \"pnpm --filter @todo/api dev\" \"pnpm --filter @todo/web dev\"",
+    "build": "pnpm --filter @todo/api build && pnpm --filter @todo/web build",
+    "lint": "eslint .",
+    "typecheck": "pnpm --filter @todo/api typecheck && pnpm --filter @todo/web typecheck",
+    "db:generate": "pnpm --filter @todo/api db:generate",
+    "db:migrate": "pnpm --filter @todo/api db:migrate"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.24.0",
+    "globals": "^16.0.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.29.1"
+  }
+}

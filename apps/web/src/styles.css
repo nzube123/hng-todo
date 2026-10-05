@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { font-family: 'DM Sans', sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+.font-display { font-family: 'Manrope', sans-serif; }
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: wait; opacity: .65; }
+:focus-visible { outline: 3px solid #7bb597; outline-offset: 3px; }
+@layer components {
+  .page-title { @apply mt-2 font-display text-4xl font-semibold tracking-[-.045em] text-ink sm:text-5xl; }
+  .section-title { @apply mt-1 font-display text-xl font-semibold tracking-tight text-ink; }
+  .eyebrow { @apply text-[10px] font-bold tracking-[.17em] text-muted; }
+  .nav-link { @apply flex shrink-0 items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-muted transition hover:bg-canvas hover:text-ink lg:w-full; }
+  .nav-link-active { @apply bg-mint text-forest; }
+  .button-primary { @apply inline-flex items-center justify-center gap-2 rounded-xl bg-forest px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#1c503c] focus-visible:outline-forest; }
+  .button-secondary { @apply inline-flex items-center justify-center rounded-xl border border-stone-200 bg-white px-4 py-2.5 text-sm font-medium text-ink transition hover:border-forest/40 hover:bg-canvas; }
+  .icon-button { @apply grid h-9 w-9 place-items-center rounded-full text-2xl leading-none text-muted transition hover:bg-canvas hover:text-ink; }
+  .field-label { @apply block space-y-2 text-sm font-medium text-ink; }
+  .field { @apply w-full rounded-xl border border-stone-200 bg-white px-3.5 py-3 text-sm text-ink outline-none transition placeholder:text-stone-400 focus:border-forest/50 focus:ring-4 focus:ring-forest/10; }
+  .search-field { @apply flex items-center gap-3 rounded-xl border border-stone-200 bg-white px-4 py-3 text-lg text-stone-400 transition focus-within:border-forest/50 focus-within:ring-4 focus-within:ring-forest/10; }
+  .search-field input { @apply w-full bg-transparent text-sm text-ink outline-none placeholder:text-stone-400; }
+  .filter-pill { @apply rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-medium text-muted transition hover:border-forest/30 hover:text-ink; }
+  .filter-pill-active { @apply border-forest bg-forest text-white hover:bg-[#1c503c] hover:text-white; }
+  .priority { @apply rounded-full px-2.5 py-1 text-[10px] font-semibold capitalize tracking-wide; }
+  .priority-high { @apply bg-rose-50 text-rose-700; }
+  .priority-medium { @apply bg-amber-50 text-amber-700; }
+  .priority-low { @apply bg-emerald-50 text-emerald-700; }
+  .text-action { @apply rounded-lg px-2.5 py-1.5 text-xs font-medium text-muted transition hover:bg-canvas hover:text-forest; }
+  .empty-card { @apply rounded-2xl border border-dashed border-stone-300 bg-white/60 px-6 py-14 text-center; }
+  .empty-card h2 { @apply mt-4 font-display text-lg font-semibold text-ink; }
+  .empty-card p { @apply mx-auto mt-1 max-w-sm text-sm leading-relaxed text-muted; }
+  .empty-illustration { @apply mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-mint text-xl text-forest; }
+  .state-error { @apply rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-800; }
+  .skeleton { @apply animate-pulse rounded-2xl bg-stone-200/60; }
+}
+@keyframes fade-in { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-in { animation: fade-in .25s ease-out both; }
