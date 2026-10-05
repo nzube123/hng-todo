@@ -1,5 +1,8 @@
-import { PrismaClient } from '../../node_modules/.prisma/client/index.js';
+import { PrismaClient } from '../generated/prisma/index.js';
+import { config } from 'dotenv';
+import { resolve } from 'node:path';
 
-process.env.DATABASE_URL ??= 'file:./dev.db';
+config({ path: resolve(process.cwd(), '../../.env') });
+process.env.DATABASE_URL ??= 'postgresql://postgres:postgres@localhost:5432/todo_app?schema=public';
 
 export const prisma = new PrismaClient();

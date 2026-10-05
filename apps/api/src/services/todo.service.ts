@@ -1,4 +1,4 @@
-import { Prisma } from '../../node_modules/.prisma/client/index.js';
+import { Prisma } from '../generated/prisma/index.js';
 import { prisma } from '../lib/prisma.js';
 import { AppError } from '../lib/app-error.js';
 import type { todoCreateSchema, todoQuerySchema, todoUpdateSchema } from '../schemas/todo.schema.js';
