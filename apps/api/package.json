@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "build": "node scripts/prisma.mjs generate && tsc -p tsconfig.json",
+    "build": "node scripts/prisma.mjs generate && tsc -p tsconfig.json && cp -r src/generated/prisma dist/generated/prisma",
     "start": "node dist/server.js",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "db:generate": "node scripts/prisma.mjs generate",
